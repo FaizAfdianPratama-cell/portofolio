@@ -94,7 +94,6 @@ function ChatBubbleHint({ lang, isLight, onDismiss, position }: {
   );
 }
 
-// ── Draggable FAB wrapper ─────────────────────────────────────────
 function DraggableFAB({
   children,
   onPositionChange,
@@ -106,7 +105,6 @@ function DraggableFAB({
   const isDragging = useRef(false);
   const dragStart = useRef({ mx: 0, my: 0, ex: 0, ey: 0 });
 
-  // Default position: bottom-right — use 0,0 on SSR, update on mount
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -114,7 +112,6 @@ function DraggableFAB({
   }, []);
 
   useEffect(() => {
-    // Update default on resize
     const onResize = () => {
       setPos(prev => ({
         x: Math.min(prev.x, window.innerWidth - 72),
@@ -198,7 +195,6 @@ export default function ChatWidget() {
   const bottomRef   = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Mount first — prevents SSR/client hydration mismatch for window-dependent values
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
@@ -208,7 +204,6 @@ export default function ChatWidget() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // Watch for navbar drawer open (it sets body overflow:hidden)
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setNavOpen(document.body.style.overflow === "hidden" && !open);
@@ -314,12 +309,10 @@ export default function ChatWidget() {
           : "0 12px 48px rgba(0,0,0,0.60), 0 2px 8px rgba(0,0,0,0.3)",
       };
 
-  // Hide FAB when mobile chat is open OR when nav drawer is open
   const fabVisible = mounted && !(isMobile && open) && !navOpen;
 
   return (
     <>
-      {/* ── Bubble hint ── */}
       <AnimatePresence>
         {mounted && !open && bubbleVisible && !navOpen && (
           <ChatBubbleHint
@@ -331,7 +324,6 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── Draggable FAB ── */}
       <AnimatePresence>
         {fabVisible && (
           <DraggableFAB onPositionChange={setFabPos}>
@@ -410,7 +402,6 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── Chat Panel ── */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -421,7 +412,6 @@ export default function ChatWidget() {
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             style={panelStyle}
           >
-            {/* Header */}
             <div style={{
               flexShrink: 0, background: SURFACE,
               borderBottom: `1px solid ${BORDER}`,
@@ -474,7 +464,6 @@ export default function ChatWidget() {
               </div>
             </div>
 
-            {/* Messages / Welcome */}
             <div style={{
               flex: 1, overflowY: "auto",
               padding: messages.length === 0 ? 0 : "16px 16px 4px",
