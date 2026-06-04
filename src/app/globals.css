@@ -3,10 +3,7 @@
 @tailwind utilities;
  
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
- 
-/* ===========================
-   CSS VARIABLES
-   =========================== */
+
 :root {
   --neon: #00f5d4;
   --neon2: #7c3aed;
@@ -132,10 +129,7 @@ p {
   border: 1px solid rgba(99,102,241,0.18);
   box-shadow: 0 4px 24px rgba(99,102,241,0.08), 0 1px 4px rgba(0,0,0,0.06);
 }
- 
-/* ===========================
-   GRID BACKGROUND
-   =========================== */
+
 .grid-bg {
   background-image:
     linear-gradient(rgba(0,245,212,0.04) 1px, transparent 1px),
@@ -149,10 +143,7 @@ p {
     linear-gradient(90deg, rgba(99,102,241,0.1) 1px, transparent 1px);
   background-size: 64px 64px;
 }
- 
-/* ===========================
-   MESH GRADIENT
-   =========================== */
+
 .mesh-gradient {
   background:
     radial-gradient(ellipse 70% 50% at 15% 15%, rgba(124,58,237,0.18) 0%, transparent 60%),
@@ -164,10 +155,7 @@ p {
     radial-gradient(ellipse 70% 50% at 15% 15%, rgba(99,102,241,0.22) 0%, transparent 60%),
     radial-gradient(ellipse 50% 70% at 85% 85%, rgba(139,92,246,0.18) 0%, transparent 60%);
 }
- 
-/* ===========================
-   ANIMATIONS
-   =========================== */
+
 @keyframes borderGlow {
   0%, 100% {
     border-color: rgba(0,245,212,0.25);
@@ -202,28 +190,17 @@ p {
 @keyframes blink { 50% { opacity: 0; } }
 .blink { animation: blink 1s step-end infinite; }
  
- 
-/* ===========================
-   GRADIENT TEXT UTILITY
-   Force-include for Tailwind purge
-   =========================== */
 .gradient-text {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
- 
-/* ===========================
-   MOBILE
-   =========================== */
+
 @media (max-width: 768px) {
   body { cursor: auto; }
   .cursor, .cursor-follower { display: none; }
 }
  
-/* ===========================
-   SAFE AREA (iPhone notch / home bar)
-   =========================== */
 footer {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
