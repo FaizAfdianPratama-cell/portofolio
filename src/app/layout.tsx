@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AppProvider } from "../context/AppContext";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "Portfolio — Data Enthusiast",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <AppProvider>
           {children}
+          <Analytics />
         </AppProvider>
       </body>
     </html>
