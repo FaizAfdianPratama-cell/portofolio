@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+ 
+/* ===========================
+   CSS VARIABLES
+   =========================== */
+:root {
+  --neon: #00f5d4;
+  --neon2: #7c3aed;
+  --neon3: #f59e0b;
+ 
+  /* DARK defaults */
+  --bg-base:        #060b18;
+  --bg-surface:     #0d1426;
+  --bg-card:        rgba(255,255,255,0.04);
+  --border-color:   rgba(255,255,255,0.08);
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --scrollbar-bg:   #060b18;
+}
+ 
+[data-theme="light"] {
+  --bg-base:        #eef2ff;
+  --bg-surface:     #dde3f7;
+  --bg-card:        rgba(255,255,255,0.92);
+  --border-color:   rgba(99,102,241,0.15);
+  --text-primary:   #1e1b4b;
+  --text-secondary: #3730a3;
+  --text-muted:     #6366f1;
+  --scrollbar-bg:   #eef2ff;
+}
+ 
+/* ===========================
+   RESET & BASE
+   =========================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+ 
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+ 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+ 
+p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+ 
+.font-mono, code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+ 
+/* ===========================
+   CUSTOM CURSOR
+   =========================== */
+.cursor {
+  width: 10px;
+  height: 10px;
+  background: #00f5d4;
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+ 
+[data-theme="light"] .cursor {
+  background: #6366f1;
+  mix-blend-mode: multiply;
+}
+ 
+.cursor-follower {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(0,245,212,0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.12s ease;
+}
+ 
+[data-theme="light"] .cursor-follower {
+  border-color: rgba(99,102,241,0.45);
+}
+ 
+/* ===========================
+   SCROLLBAR
+   =========================== */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: #00f5d4; border-radius: 2px; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #6366f1; }
+ 
+/* ===========================
+   GLASS CARD
+   =========================== */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+ 
+[data-theme="light"] .glass-card {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(99,102,241,0.18);
+  box-shadow: 0 4px 24px rgba(99,102,241,0.08), 0 1px 4px rgba(0,0,0,0.06);
+}
+ 
+/* ===========================
+   GRID BACKGROUND
+   =========================== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,245,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,212,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+ 
+[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.1) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+ 
+/* ===========================
+   MESH GRADIENT
+   =========================== */
+.mesh-gradient {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 15%, rgba(124,58,237,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 85% 85%, rgba(0,245,212,0.12) 0%, transparent 60%);
+}
+ 
+[data-theme="light"] .mesh-gradient {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 15%, rgba(99,102,241,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 85% 85%, rgba(139,92,246,0.18) 0%, transparent 60%);
+}
+ 
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(0,245,212,0.25);
+    box-shadow: 0 0 16px rgba(0,245,212,0.08);
+  }
+  50% {
+    border-color: rgba(124,58,237,0.4);
+    box-shadow: 0 0 24px rgba(124,58,237,0.15);
+  }
+}
+[data-theme="light"] .animated-border {
+  animation: borderGlowLight 4s ease infinite;
+}
+@keyframes borderGlowLight {
+  0%, 100% {
+    border-color: rgba(99,102,241,0.35);
+    box-shadow: 0 0 16px rgba(99,102,241,0.12);
+  }
+  50% {
+    border-color: rgba(139,92,246,0.55);
+    box-shadow: 0 0 24px rgba(139,92,246,0.2);
+  }
+}
+.animated-border { animation: borderGlow 4s ease infinite; }
+ 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.floating { animation: float 5s ease-in-out infinite; }
+ 
+@keyframes blink { 50% { opacity: 0; } }
+.blink { animation: blink 1s step-end infinite; }
+ 
+ 
+/* ===========================
+   GRADIENT TEXT UTILITY
+   Force-include for Tailwind purge
+   =========================== */
+.gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+ 
+/* ===========================
+   MOBILE
+   =========================== */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .cursor, .cursor-follower { display: none; }
+}
+ 
+/* ===========================
+   SAFE AREA (iPhone notch / home bar)
+   =========================== */
+footer {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+ 
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .fixed-bottom-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
