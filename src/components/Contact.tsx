@@ -65,7 +65,6 @@ export default function Contact() {
         </>
       )}
 
-      {/* Section number watermark */}
       <div
         className="pointer-events-none absolute right-4 sm:right-8 top-8 sm:top-12 select-none font-extrabold leading-none"
         style={{
@@ -79,7 +78,6 @@ export default function Contact() {
 
       <div className="relative z-10 max-w-5xl mx-auto">
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,10 +106,8 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Grid — stacks on mobile, side-by-side on lg */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-start">
 
-          {/* Left: Info + Socials */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +129,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* WhatsApp */}
             <motion.a
               href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               whileHover={{ x: 4 }}
@@ -159,7 +154,6 @@ export default function Contact() {
               </svg>
             </motion.a>
 
-            {/* Instagram */}
             <motion.a
               href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
               whileHover={{ x: 4 }}
@@ -186,7 +180,6 @@ export default function Contact() {
             </motion.a>
           </motion.div>
 
-          {/* Right: Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
