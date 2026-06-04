@@ -4,9 +4,7 @@ const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GEMINI_API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
-// ─── Helper: Lang Hint ────────────────────────────────────────────────────────
 function getLangHint(text: string): string {
-  // Deteksi English yang jelas: hanya huruf latin + kata-kata English umum
   const isObviouslyEnglish =
     /^[a-zA-Z0-9\s.,!?'"();:\-/]+$/.test(text.trim()) &&
     /\b(the|is|are|was|were|what|who|how|tell|show|give|can|will|would|should|could|have|has|do|does|did|my|your|their|this|that|these|those|about|with|from|for|not|and|or|but|please|hello|hi|hey|help|make|create|explain|describe|list|find|search|get|use|run|start|stop|open|close|go|come|take|put|set|let|try|need|want|like|know|think|see|look|feel|seem|become|include|provide|return|show|build|write|read|send|receive|check|add|remove|update|delete|change|move|copy|save|load|play|watch|listen)\b/i
@@ -17,7 +15,6 @@ function getLangHint(text: string): string {
     : "\n\n[REMINDER: Analisis bahasa pengguna menggunakan aturan di system prompt → ikuti bahasa yang digunakan pengguna.]";
 }
 
-// ─── Sistem prompt ────────────────────────────────────────────────────────────
 function buildSystemPrompt(): string {
   const now = new Date(
     new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
@@ -165,7 +162,6 @@ Fresh graduate RPL, terbuka untuk magang/kerja/kolaborasi/freelance.
 Goal: jadi Data Analyst / Data Scientist profesional. Balas dalam 24 jam.`;
 }
 
-// ─── Groq (Primary) ───────────────────────────────────────────────────────────
 async function callGroq(
   messages: Array<{ role: string; content: string }>,
   systemPrompt: string
@@ -211,7 +207,6 @@ async function callGroq(
   return data.choices?.[0]?.message?.content?.trim() || "Maaf, tidak ada respons.";
 }
 
-// ─── Gemini (Fallback + Google Search) ───────────────────────────────────────
 interface GeminiPart {
   text?: string;
   executableCode?: unknown;
@@ -299,7 +294,6 @@ export async function POST(req: NextRequest) {
       console.warn("⚠️ Gemini gagal/habis kuota, fallback ke Groq...", geminiErr);
     }
 
-    // 2️⃣ Fallback ke Groq (limit banyak, 14.400 req/hari)
     try {
       const reply = await callGroq(messages, systemPrompt);
       console.log("✅ Groq fallback berhasil");
