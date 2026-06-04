@@ -4,6 +4,19 @@ const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GEMINI_API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
+// ─── Helper: Lang Hint ────────────────────────────────────────────────────────
+function getLangHint(text: string): string {
+  // Deteksi English yang jelas: hanya huruf latin + kata-kata English umum
+  const isObviouslyEnglish =
+    /^[a-zA-Z0-9\s.,!?'"();:\-/]+$/.test(text.trim()) &&
+    /\b(the|is|are|was|were|what|who|how|tell|show|give|can|will|would|should|could|have|has|do|does|did|my|your|their|this|that|these|those|about|with|from|for|not|and|or|but|please|hello|hi|hey|help|make|create|explain|describe|list|find|search|get|use|run|start|stop|open|close|go|come|take|put|set|let|try|need|want|like|know|think|see|look|feel|seem|become|include|provide|return|show|build|write|read|send|receive|check|add|remove|update|delete|change|move|copy|save|load|play|watch|listen)\b/i
+    .test(text);
+
+  return isObviouslyEnglish
+    ? "\n\n[REMINDER: User is writing in ENGLISH → You MUST respond in ENGLISH only. Do NOT use Bahasa Indonesia.]"
+    : "\n\n[REMINDER: Analisis bahasa pengguna menggunakan aturan di system prompt → ikuti bahasa yang digunakan pengguna.]";
+}
+
 // ─── Sistem prompt ────────────────────────────────────────────────────────────
 function buildSystemPrompt(): string {
   const now = new Date(
@@ -32,13 +45,60 @@ function buildSystemPrompt(): string {
   return `Kamu adalah asisten AI pribadi bernama "Faiz AI" di portofolio FAIZ AFDIAN PRATAMA.
 
 ══════════════════════════════════════
-ATURAN BAHASA — WAJIB DIIKUTI
+ATURAN BAHASA — PALING UTAMA & WAJIB
 ══════════════════════════════════════
-DETEKSI bahasa dari pesan TERAKHIR pengguna:
-• Jika pengguna menulis dalam BAHASA INGGRIS → jawab SELURUHNYA dalam BAHASA INGGRIS
-• Jika pengguna menulis dalam BAHASA INDONESIA → jawab SELURUHNYA dalam BAHASA INDONESIA
-• Jika campur → ikuti bahasa yang dominan
-JANGAN pernah menjawab dalam bahasa yang berbeda dari bahasa pengguna.
+Sebelum menjawab, kamu WAJIB menganalisis bahasa yang digunakan pengguna
+berdasarkan STRUKTUR KALIMAT dan KOSAKATA, bukan hanya kata kunci tertentu.
+
+CARA MENENTUKAN BAHASA:
+
+1. BAHASA INDONESIA → Jawab 100% Bahasa Indonesia
+   Ciri-ciri:
+   - Menggunakan kata/frasa Indonesia meskipun tanpa kata umum seperti "apa", "ini", dll
+   - Pola kata berimbuhan: -kan, -an, -i, -nya, me-, ber-, ter-, pe-, di-, ke-
+   - Contoh kalimat Indonesia tanpa kata umum:
+     "foto profil" → Indonesia
+     "warna biru" → Indonesia
+     "harga murah" → Indonesia  
+     "cuaca hari ini" → Indonesia
+     "makan siang" → Indonesia
+     "jalan kaki" → Indonesia
+     "beli tiket" → Indonesia
+     "kerja keras" → Indonesia
+     "tidur siang" → Indonesia
+     "main game" → Indonesia
+     "nonton film" → Indonesia
+     "baju baru" → Indonesia
+     "pergi sekolah" → Indonesia
+     "masak nasi" → Indonesia
+     "minum kopi" → Indonesia
+
+2. BAHASA INGGRIS → Jawab 100% Bahasa Inggris
+   Ciri-ciri:
+   - Struktur grammar English (subject + verb + object)
+   - Kosakata English yang jelas
+   - Contoh: "profile photo", "blue color", "cheap price", "today weather"
+
+3. JIKA RAGU → Default ke BAHASA INDONESIA
+
+LARANGAN KERAS:
+• DILARANG jawab Bahasa Inggris jika pengguna menulis Bahasa Indonesia
+• DILARANG jawab Bahasa Indonesia jika pengguna menulis Bahasa Inggris
+• DILARANG mencampur dua bahasa dalam satu jawaban
+• Istilah teknis (Python, Next.js, API, React, MySQL, dll) BUKAN penentu bahasa
+• Nama orang, tempat, brand BUKAN penentu bahasa
+
+CONTOH PENERAPAN:
+User: "foto profil" → INDONESIA ✓
+User: "profile photo" → ENGLISH ✓
+User: "berapa harganya" → INDONESIA ✓
+User: "how much does it cost" → ENGLISH ✓
+User: "pakai Python bisa ga" → INDONESIA ✓
+User: "can i use Python" → ENGLISH ✓
+User: "next.js itu apa" → INDONESIA ✓
+User: "what is next.js" → ENGLISH ✓
+User: "random kata" → INDONESIA (default) ✓
+User: "random words" → ENGLISH ✓
 
 ══════════════════════════════════════
 MODE 1 — TENTANG FAIZ
@@ -53,14 +113,6 @@ Aktif saat pertanyaan TIDAK tentang Faiz (berita, sains, coding umum, matematika
 Jawab sebaik mungkin dari pengetahuanmu.
 
 Jangan sebut "mode" ke pengguna. Transisi antar mode boleh dalam satu percakapan.
-
-══════════════════════════════════════
-PERINGATAN KERAS — BAHASA
-══════════════════════════════════════
-Sebelum menjawab, deteksi bahasa pesan terakhir pengguna.
-Jika pesan terakhir dalam BAHASA INGGRIS: SELURUH jawabanmu HARUS dalam BAHASA INGGRIS. TIDAK BOLEH ada satu kata pun dalam Bahasa Indonesia.
-Jika pesan terakhir dalam BAHASA INDONESIA: SELURUH jawabanmu HARUS dalam BAHASA INDONESIA.
-INI ADALAH INSTRUKSI TERPENTING. Gagal mengikuti ini = jawaban salah.
 
 ══════════════════════════════════════
 DATA FAIZ (MODE 1)
@@ -121,15 +173,8 @@ async function callGroq(
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) throw new Error("GROQ_API_KEY tidak ditemukan");
 
-  // Detect language for Groq too
-  const lastUserMsgGroq = [...messages].reverse().find(m => m.role === "user");
-  const lastTextGroq = lastUserMsgGroq?.content ?? "";
-  const isEnglishGroq = /^[a-zA-Z0-9\s.,!?'";:()/\-]+$/.test(lastTextGroq.trim()) ||
-    /\b(the|is|are|was|were|what|who|how|tell|show|give|can|i|my|me|you|your|please|about|and|or|not|with|from|for|this|that|has|have|do|does|did|will|would|should|could|may|might)\b/i.test(lastTextGroq);
-
-  const langHintGroq = isEnglishGroq
-    ? "\n\n[SYSTEM: Respond entirely in ENGLISH. Do NOT use Bahasa Indonesia.]"
-    : "\n\n[SYSTEM: Jawab seluruhnya dalam Bahasa Indonesia.]";
+  const lastUserMsg = [...messages].reverse().find(m => m.role === "user");
+  const langHint = getLangHint(lastUserMsg?.content ?? "");
 
   const res = await fetch(GROQ_API_URL, {
     method: "POST",
@@ -143,7 +188,12 @@ async function callGroq(
         { role: "system", content: systemPrompt },
         ...messages.map((m, idx) => {
           const isLast = idx === messages.length - 1;
-          return { role: m.role, content: isLast && m.role === "user" ? m.content + langHintGroq : m.content };
+          return {
+            role: m.role,
+            content: isLast && m.role === "user"
+              ? m.content + langHint
+              : m.content,
+          };
         }),
       ],
       max_tokens: 1024,
@@ -188,21 +238,18 @@ async function callGemini(
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new Error("GEMINI_API_KEY tidak ditemukan");
 
-  // Detect language of last user message and prepend a strong hint
   const lastUserMsg = [...messages].reverse().find(m => m.role === "user");
-  const lastText = lastUserMsg?.content ?? "";
-  const isEnglish = /^[a-zA-Z0-9\s.,!?'";:()/\-]+$/.test(lastText.trim()) ||
-    /\b(the|is|are|was|were|what|who|how|tell|show|give|can|i|my|me|you|your|please|about|and|or|not|with|from|for|this|that|has|have|do|does|did|will|would|should|could|may|might)\b/i.test(lastText);
-
-  const langHint = isEnglish
-    ? "\n\n[SYSTEM: The user wrote in ENGLISH. You MUST respond entirely in ENGLISH. Do NOT use Bahasa Indonesia at all.]"
-    : "\n\n[SYSTEM: Pengguna menulis dalam Bahasa Indonesia. Jawab SELURUHNYA dalam Bahasa Indonesia.]";
+  const langHint = getLangHint(lastUserMsg?.content ?? "");
 
   const geminiContents = messages.map((m, idx) => {
     const isLast = idx === messages.length - 1;
     return {
       role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: isLast && m.role === "user" ? m.content + langHint : m.content }],
+      parts: [{
+        text: isLast && m.role === "user"
+          ? m.content + langHint
+          : m.content,
+      }],
     };
   });
 
