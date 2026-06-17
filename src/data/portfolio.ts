@@ -54,6 +54,12 @@ export const certifications = [
     year: "2026",
     url: "https://storage.googleapis.com/myskill-v2-certificates/topic-PDDPBK4W7Z3skoQ70VQH/YVfVoRkX3WNpENIy6c36OFLYSwH3-y4jdX59t7HWms7IswHwB.pdf",
   },
+  {
+    name: "AI for Work Productivity",
+    issuer: "MySkill",
+    year: "2026",
+    url: "https://drive.google.com/file/d/1wa-IGdLoT-KY9U1DPvI5d2z3C0aH9spJ/view?usp=sharing",
+  },
 ];
 
 export const projects = [
