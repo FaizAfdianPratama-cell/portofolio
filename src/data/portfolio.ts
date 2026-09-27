@@ -70,7 +70,7 @@ export const projects = [
       en: "Exploration and visualization of a furniture dataset using Google Looker to uncover sales patterns and trends.",
     },
     tags: ["Google Looker"],
-    category: ["Data Visualization"], // Diubah menjadi array
+    category: ["Data Visualization"],
     imageUrl: "/projects/furniture-dashboard.png",
     demoUrl: "https://google.com",
   },
@@ -81,9 +81,9 @@ export const projects = [
       en: "Digital security post management system for attendance, visitor logs, and item tracking.",
     },
     tags: ["PHP", "Bootstrap", "HTML", "CSS", "JavaScript", "MySQL"],
-    category: ["Web Dev"], // Diubah menjadi array
+    category: ["Web Dev"],
     imageUrl: "/projects/siposkam-dashboard.png",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/siposkam", // Duplikasi githubUrl yang salah sudah dihapus
     demoUrl: "",
   },
   {
@@ -93,9 +93,9 @@ export const projects = [
       en: "Digital company profile of PT. Revolutek Dananjaya Mandiri showcasing company information, services, and business portfolio.",
     },
     tags: ["PHP", "HTML", "CSS", "JavaScript"],
-    category: ["Web Dev"], // Diubah menjadi array
+    category: ["Web Dev"],
     imageUrl: "/projects/company-profile.png",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/CompanyProfile",
     demoUrl: "",
   },
   {
@@ -105,9 +105,9 @@ export const projects = [
       en: "A CRUD web application for managing new student registrations, featuring add, list, edit, and delete student data.",
     },
     tags: ["PHP", "MySQL", "HTML", "CSS"],
-    category: ["Web Dev"], // Diubah menjadi array
+    category: ["Web Dev"],
     imageUrl: "/projects/smk-coding.png",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/PendaftaranSiswaBaru",
     demoUrl: "",
   },
   {
@@ -117,7 +117,7 @@ export const projects = [
       en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
     },
     tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
-    category: ["Web Dev", "Android Dev"], // Dikembalikan ke format array dengan 'kampder.png' huruf kecil
+    category: ["Web Dev", "Android Dev"],
     imageUrl: "/projects/kampder.png",
     githubUrl: "",
     demoUrl: "https://vercel.app",
@@ -129,7 +129,7 @@ export const projects = [
       en: "An interactive Android-based Tic Tac Toe (XOX) game application built with MIT App Inventor, featuring an automatic win-determination logic system and sound effects."
     },
     tags: ["MIT App Inventor", "Android", "Visual Blocks Programming"],
-    category: ["Android Dev"], // Diubah menjadi array
+    category: ["Android Dev"],
     imageUrl: "/projects/game-xox.png",
     githubUrl: "",
     demoUrl: "https://youtu.be"
@@ -141,9 +141,9 @@ export const projects = [
       en: "An interactive Android-based word puzzle game application built with MIT App Inventor."
     },
     tags: ["MIT App Inventor", "Android", "Visual Blocks Programming"],
-    category: ["Android Dev"], // Diubah menjadi array
+    category: ["Android Dev"],
     imageUrl: "/projects/word-puzzle.png",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/WordPuzzleGame",
     demoUrl: ""
   },
 ];
