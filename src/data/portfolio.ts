@@ -117,7 +117,7 @@ export const projects = [
       en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
     },
     tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
-    category: "Web & Mobile Dev",
+    category: "Web Dev", // Diubah kembali menjadi string murni agar seragam dengan data project lain
     imageUrl: "/projects/kampder.png",
     githubUrl: "",
     demoUrl: "https://vercel.app",
@@ -156,7 +156,6 @@ export const education = [
   },
 ];
 
-// ── PKL / Experience ──
 export const internship = [
   {
     company: "PT Tirta Alam Segar",
