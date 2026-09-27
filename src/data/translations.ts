@@ -74,7 +74,7 @@ export const t: {
     titlePre: { id: "Pengalaman", en: "Experience" },
     sub:      { id: "Beberapa pengalaman yang telah membentuk saya", en: "The experiences that have shaped me so far" },
     educationLabel:  { id: "Pendidikan", en: "Education" },
-    internshipLabel: { id: "PKL / Magang", en: "Internship" },
+    internshipLabel: { id: "Pengalaman Kerja", en: "Work Experience" },
     certLabel: { id: "Sertifikat & Sertifikasi", en: "Certificates & Certifications" },
     available:       { id: "Tersedia", en: "Available" },
   },
