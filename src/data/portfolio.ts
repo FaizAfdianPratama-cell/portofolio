@@ -11,9 +11,9 @@ export const personalData = {
   graduationYear: "2026",
   bio: "Lulusan SMK RPL yang mengasah skill di web programming, logika pemrograman, desain sistem, hingga analisis data. Pengalaman kerja saat ini di PT Tirta Alam Segar (Process Bottle) menunjukkan bahwa saya adalah seorang pembelajar cepat yang mampu beradaptasi dengan industri non-IT dan tetap memberikan performa terbaik.",
   email: "afdianfaiz2@gmail.com",
-  github: "https://github.com/FaizAfdianPratama-cell",
-  linkedin: "https://www.linkedin.com/in/faizafdianpratama",
-  cvUrl: "https://drive.google.com/drive/folders/1wU18getUVM5U3ePeChb9wOCGiCotsFCq?usp=sharing",
+  github: "https://github.com",
+  linkedin: "https://linkedin.com",
+  cvUrl: "https://google.com",
 };
 
 export const skills = [
@@ -34,31 +34,31 @@ export const certifications = [
     name: "E-Course Data Analyst",
     issuer: "Karirnex",
     year: "2026",
-    url: "https://drive.google.com/file/d/11gzEz0RO2Q2AopAHzXXQc7w0OPTxDYbt/view",
+    url: "https://google.com",
   },
   {
     name: "Bootcamp Data Analyst — Excel, SQL, Python & Google Looker Studio",
     issuer: "Karirnex",
     year: "2026",
-    url: "https://drive.google.com/file/d/1sGrbkcPPiZvvWD8nYkRd2TuMfcuY312N/view",
+    url: "https://google.com",
   },
   {
     name: "Digital Detective: Kenali Ancaman, Amankan Data",
     issuer: "Bina Insani University",
     year: "2025",
-    url: "https://drive.google.com/file/d/1EF8KKKSlwppGudeshrsPqvFN7ztvgjjQ/view",
+    url: "https://google.com",
   },
   {
     name: "Basic Data",
     issuer: "MySkill",
     year: "2026",
-    url: "https://storage.googleapis.com/myskill-v2-certificates/topic-PDDPBK4W7Z3skoQ70VQH/YVfVoRkX3WNpENIy6c36OFLYSwH3-y4jdX59t7HWms7IswHwB.pdf",
+    url: "https://googleapis.com",
   },
   {
     name: "AI for Work Productivity",
     issuer: "MySkill",
     year: "2026",
-    url: "https://drive.google.com/file/d/1wa-IGdLoT-KY9U1DPvI5d2z3C0aH9spJ/view?usp=sharing",
+    url: "https://google.com",
   },
 ];
 
@@ -70,81 +70,81 @@ export const projects = [
       en: "Exploration and visualization of a furniture dataset using Google Looker to uncover sales patterns and trends.",
     },
     tags: ["Google Looker"],
-    category: "Data Vizualization",
+    category: "Data Visualization",
     imageUrl: "/projects/furniture-dashboard.png",
-    demoUrl: "https://drive.google.com/file/d/1xR9Ek-4M2CAeq2NbUsXFZ93JDX2oXOHC/view?usp=drive_link",
+    demoUrl: "https://google.com",
   },
   {
-  title: "Sistem Pos Keamanan - SIPOSKAM",
-  description: {
-    id: "Sistem informasi digital pengelolaan absensi, buku tamu, dan log barang pos satpam.",
-    en: "Digital security post management system for attendance, visitor logs, and item tracking.",
-  },
-  tags: ["PHP", "Bootstrap", "HTML", "CSS", "JavaScript", "MySQL"],
-  category: "Web Dev",
-  imageUrl: "/projects/siposkam-dashboard.png",
-  githubUrl: "https://github.com/FaizAfdianPratama-cell/siposkam",
-  demoUrl: "",
-  },
-  {
-  title: "Company Profile - PT. Revolutek Dananjaya Mandiri",
-  description: {
-    id: "Company profile digital PT. Revolutek Dananjaya Mandiri yang menampilkan informasi perusahaan, layanan, dan portofolio bisnis.",
-    en: "Digital company profile of PT. Revolutek Dananjaya Mandiri showcasing company information, services, and business portfolio.",
-  },
-  tags: ["PHP", "HTML", "CSS", "JavaScript"],
-  category: "Web Dev",
-  imageUrl: "/projects/company-profile.png",
-  githubUrl: "https://github.com/FaizAfdianPratama-cell/CompanyProfile",
-  demoUrl: "",
+    title: "Sistem Pos Keamanan - SIPOSKAM",
+    description: {
+      id: "Sistem informasi digital pengelolaan absensi, buku tamu, dan log barang pos satpam.",
+      en: "Digital security post management system for attendance, visitor logs, and item tracking.",
+    },
+    tags: ["PHP", "Bootstrap", "HTML", "CSS", "JavaScript", "MySQL"],
+    category: "Web Dev",
+    imageUrl: "/projects/siposkam-dashboard.png",
+    githubUrl: "https://github.com/siposkam",
+    demoUrl: "",
   },
   {
-  title: "Pendaftaran Siswa Baru",
-  description: {
-    id: "Aplikasi web CRUD untuk mengelola pendaftaran calon siswa baru, mencakup fitur tambah, lihat daftar, edit, dan hapus data siswa.",
-    en: "A CRUD web application for managing new student registrations, featuring add, list, edit, and delete student data.",
-  },
-  tags: ["PHP", "MySQL", "HTML", "CSS"],
-  category: "Web Dev",
-  imageUrl: "/projects/smk-coding.png",
-  githubUrl: "https://github.com/FaizAfdianPratama-cell/PendaftaranSiswaBaru",
-  demoUrl: "",
-  },
-   {
-  title: "Kampder",
-  description: {
-    id: "Aplikasi yang digunakan untuk Mencatat keuangan sehari-hari, Memantau target, dan Mengatur jadwal.",
-    en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
-  },
-  tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
-  category: ["Web Dev", "Android Dev"],
-  imageUrl: "/projects/kampder.png",
-  githubUrl: "",
-  demoUrl: "https://kampder.vercel.app/",
+    title: "Company Profile - PT. Revolutek Dananjaya Mandiri",
+    description: {
+      id: "Company profile digital PT. Revolutek Dananjaya Mandiri yang menampilkan informasi perusahaan, layanan, dan portofolio bisnis.",
+      en: "Digital company profile of PT. Revolutek Dananjaya Mandiri showcasing company information, services, and business portfolio.",
+    },
+    tags: ["PHP", "HTML", "CSS", "JavaScript"],
+    category: "Web Dev",
+    imageUrl: "/projects/company-profile.png",
+    githubUrl: "https://github.com/CompanyProfile",
+    demoUrl: "",
   },
   {
-  "title": "Game XOX",
-  "description": {
-    "id": "Aplikasi game Tic Tac Toe (XOX) interaktif berbasis Android yang dibuat menggunakan MIT App Inventor, dilengkapi dengan sistem logika penentu kemenangan otomatis dan efek suara.",
-    "en": "An interactive Android-based Tic Tac Toe (XOX) game application built with MIT App Inventor, featuring an automatic win-determination logic system and sound effects."
-  },
-  "tags": ["MIT App Inventor", "Android", "Visual Blocks Programming"],
-  "category": "Android Dev",
-  "imageUrl": "/projects/game-xox.png",
-  "githubUrl": "",
-  "demoUrl": "https://youtu.be/FQ0BeWS-hkM?si=P3vyXkDc5RVCGrVc"
+    title: "Pendaftaran Siswa Baru",
+    description: {
+      id: "Aplikasi web CRUD untuk mengelola pendaftaran calon siswa baru, mencakup fitur tambah, lihat daftar, edit, dan hapus data siswa.",
+      en: "A CRUD web application for managing new student registrations, featuring add, list, edit, and delete student data.",
+    },
+    tags: ["PHP", "MySQL", "HTML", "CSS"],
+    category: "Web Dev",
+    imageUrl: "/projects/smk-coding.png",
+    githubUrl: "https://github.com/PendaftaranSiswaBaru",
+    demoUrl: "",
   },
   {
-  "title": "Word Puzzle Game",
-  "description": {
-    "id": "Aplikasi game teka-teki kata interaktif berbasis Android yang dibuat menggunakan MIT App Inventor.",
-    "en": "An interactive Android-based word puzzle game application built with MIT App Inventor."
+    title: "Kampder",
+    description: {
+      id: "Aplikasi yang digunakan untuk Mencatat keuangan sehari-hari, Memantau target, dan Mengatur jadwal.",
+      en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
+    },
+    tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
+    category: "Web & Mobile Dev",
+    imageUrl: "/projects/kampder.png",
+    githubUrl: "",
+    demoUrl: "https://vercel.app",
   },
-  "tags": ["MIT App Inventor", "Android", "Visual Blocks Programming"],
-  "category": "Android Dev",
-  "imageUrl": "/projects/word-puzzle.png",
-  "githubUrl": "https://github.com/FaizAfdianPratama-cell/WordPuzzleGame",
-  "demoUrl": ""
+  {
+    title: "Game XOX",
+    description: {
+      id: "Aplikasi game Tic Tac Toe (XOX) interaktif berbasis Android yang dibuat menggunakan MIT App Inventor, dilengkapi dengan sistem logika penentu kemenangan otomatis dan efek suara.",
+      en: "An interactive Android-based Tic Tac Toe (XOX) game application built with MIT App Inventor, featuring an automatic win-determination logic system and sound effects."
+    },
+    tags: ["MIT App Inventor", "Android", "Visual Blocks Programming"],
+    category: "Android Dev",
+    imageUrl: "/projects/game-xox.png",
+    githubUrl: "",
+    demoUrl: "https://youtu.be"
+  },
+  {
+    title: "Word Puzzle Game",
+    description: {
+      id: "Aplikasi game teka-teki kata interaktif berbasis Android yang dibuat menggunakan MIT App Inventor.",
+      en: "An interactive Android-based word puzzle game application built with MIT App Inventor."
+    },
+    tags: ["MIT App Inventor", "Android", "Visual Blocks Programming"],
+    category: "Android Dev",
+    imageUrl: "/projects/word-puzzle.png",
+    githubUrl: "https://github.com/WordPuzzleGame",
+    demoUrl: ""
   },
 ];
 
@@ -152,17 +152,16 @@ export const education = [
   {
     school: "SMK Telekomunikasi Telesandi Bekasi",
     major: { id: "Rekayasa Perangkat Lunak (RPL)", en: "Software Engineering (RPL)" },
-    year:  { id: "Mei 2023 – Jun 2026", en: "May 2023 – Jun 2026" },
+    year: { id: "Mei 2023 – Jun 2026", en: "May 2023 – Jun 2026" },
   },
 ];
 
-// ── PKL / Internship ──
-// Isi data PKL kamu di sini
+// ── PKL / Experience ──
 export const internship = [
   {
     company: "PT Tirta Alam Segar",
     role: { id: "Process Bottle", en: "Process Bottle" },
-    year: { id: "Jul 2026 – Sekarang", en: "Jul 2026 – Now" },
+    year: { id: "Jul 2026 – Sekarang", en: "Jul 2026 – Present" },
   },
   {
     company: "PT Revolutek Dananjaya Mandiri",
