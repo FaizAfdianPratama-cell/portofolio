@@ -110,6 +110,18 @@ export const projects = [
   githubUrl: "https://github.com/FaizAfdianPratama-cell/PendaftaranSiswaBaru",
   demoUrl: "",
   },
+   {
+  title: "Kampder",
+  description: {
+    id: "Aplikasi yang digunakan untuk mencatat pengeluaran dan pemasukkan keuangan sehari-hari.",
+    en: "A daily financial tracking application to manage personal expenses and income.",
+  },
+  tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
+  category: "Web Dev",
+  imageUrl: "/projects/smk-coding.png",
+  githubUrl: "",
+  demoUrl: "https://kampder.vercel.app/",
+  },
   {
   "title": "Game XOX",
   "description": {
