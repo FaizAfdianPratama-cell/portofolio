@@ -93,7 +93,7 @@ export const t: {
     footer:   { id: "Dibuat dengan Next.js · Tailwind CSS · Framer Motion · Di-deploy di Vercel", en: "Built with Next.js · Tailwind CSS · Framer Motion · Deployed on Vercel" },
     formTitle:   { id: "Kirim Pesan", en: "Send a Message" },
     formName:    { id: "Nama Lengkap", en: "Full Name" },
-    formEmail:   { id: "Alamat Email", en: "Your Email Address" },
+    formEmail:   { id: "Alamat Email Anda", en: "Your Email Address" },
     formMessage: { id: "Pesan Anda...", en: "Your Message..." },
     formSend:    { id: "Kirim Pesan", en: "Send Message" },
     formSending: { id: "Mengirim...", en: "Sending..." },
