@@ -138,11 +138,6 @@ export const projects = [
 
 export const education = [
   {
-    school: "Perbanas Institute Bekasi",
-    major: { id: "Sains Data", en: "Data Science" },
-    year:  { id: "Ags 2026 – Sekarang", en: "Aug 2026 – Present" },
-  },
-  {
     school: "SMK Telekomunikasi Telesandi Bekasi",
     major: { id: "Rekayasa Perangkat Lunak (RPL)", en: "Software Engineering (RPL)" },
     year:  { id: "Mei 2023 – Jun 2026", en: "May 2023 – Jun 2026" },
