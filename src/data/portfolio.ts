@@ -83,7 +83,7 @@ export const projects = [
     tags: ["PHP", "Bootstrap", "HTML", "CSS", "JavaScript", "MySQL"],
     category: ["Web Dev"],
     imageUrl: "/projects/siposkam-dashboard.png",
-    githubUrl: "https://github.com/siposkam", // Duplikasi githubUrl yang salah sudah dihapus
+    githubUrl: "https://github.com/siposkam",
     demoUrl: "",
   },
   {
@@ -120,7 +120,7 @@ export const projects = [
     category: ["Web Dev", "Android Dev"],
     imageUrl: "/projects/kampder.png",
     githubUrl: "",
-    demoUrl: "https://vercel.app",
+    demoUrl: "https://kampder.vercel.app/",
   },
   {
     title: "Game XOX",
@@ -168,3 +168,5 @@ export const internship = [
     year: { id: "Ags 2025 – Nov 2025", en: "Aug 2025 – Nov 2025" },
   },
 ];
+
+// Trigger komentar kosong untuk memaksa Vercel membersihkan cache lama
