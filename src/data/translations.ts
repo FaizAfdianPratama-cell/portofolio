@@ -36,14 +36,13 @@ export const t: {
     hire:      { id: "Rekrut Saya", en: "Hire Me" },
   },
   hero: {
-    available: { id: "Tersedia untuk kerja", en: "Available for work" },
     roles: {
       id: ["Penggemar Data", "Pengembang Web", "Pelajar Python", "Penggiat Teknologi"],
       en: ["Data Enthusiast", "Junior Developer", "Python Learner", "Tech Enthusiast"],
     },
     bio: {
-      id: "Lulusan SMK RPL yang mengasah skill di web programming, logika pemrograman, desain sistem, hingga analisis data. Aktif belajar mandiri di bidang Data Analytics — siap terus berkembang di industri teknologi.",
-      en: "SMK RPL graduate who honed skills across web programming, logic-based programming, system design, and data analysis. Actively self-learning in Data Analytics — ready to keep growing in the tech industry.",
+      id: "Lulusan SMK RPL yang mengasah skill di web programming, logika pemrograman, desain sistem, hingga analisis data. Pengalaman kerja saat ini di PT Tirta Alam Segar (Process Bottle) menunjukkan bahwa saya adalah seorang pembelajar cepat yang mampu beradaptasi dengan industri non-IT dan tetap memberikan performa terbaik.",
+      en: "A Software Engineering (RPL) graduate skilled in web programming, programming logic, system design, and data analysis. My current work experience at PT Tirta Alam Segar (Process Bottle) demonstrates that I am a fast learner capable of adapting to a non-IT industry while consistently delivering top performance.",
     },
     tags: {
       id: ["Bekasi 📍", "SMK Telesandi 🎓", "Lulus 2026 🏆"],
@@ -51,7 +50,6 @@ export const t: {
     },
     downloadCV: { id: "Unduh CV", en: "Download CV" },
     scroll:     { id: "gulir ke bawah", en: "scroll down" },
-    openToWork: { id: "🔥 Siap Bekerja", en: "🔥 Open to Work" },
     freshGrad:  { id: "🎓 Fresh Graduate", en: "🎓 Fresh Graduate" },
     codeRole:   { id: "Data Enthusiast", en: "Data Enthusiast" },
   },
