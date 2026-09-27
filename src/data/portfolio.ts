@@ -148,6 +148,11 @@ export const education = [
 // Isi data PKL kamu di sini
 export const internship = [
   {
+    company: "PT Tirta Alam Segar",
+    role: { id: "Process Bottle", en: "Process Bottle" },
+    year: { id: "Jul 2026 – Sekarang", en: "Jul 2026 – Now" },
+  },
+  {
     company: "PT Revolutek Dananjaya Mandiri",
     role: { id: "Staff Purchasing dan Web Developer", en: "Purchasing Staff & Web Developer" },
     year: { id: "Ags 2025 – Nov 2025", en: "Aug 2025 – Nov 2025" },
