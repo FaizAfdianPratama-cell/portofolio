@@ -71,7 +71,7 @@ export const projects = [
     },
     tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
     category: ["Web Dev", "Android Dev"],
-    imageUrl: "/projects/kampder.png",
+    imageUrl: "/projects/Kampder.png",
     githubUrl: "",
     demoUrl: "https://kampder.vercel.app/",
   },
