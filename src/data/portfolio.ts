@@ -64,6 +64,19 @@ export const certifications = [
 
 export const projects = [
   {
+    title: "Kampder",
+    description: {
+      id: "Aplikasi yang digunakan untuk Mencatat keuangan sehari-hari, Memantau target, dan Mengatur jadwal.",
+      en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
+    },
+    tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
+    category: ["Web Dev", "Android Dev"],
+    imageUrl: "/projects/kampder.png",
+    githubUrl: "",
+    demoUrl: "https://kampder.vercel.app/",
+  },
+  {
+  {
     title: "Analisis Data Furniture",
     description: {
       id: "Eksplorasi dan visualisasi dataset furniture menggunakan Google Looker untuk menemukan pola dan tren penjualan.",
@@ -109,18 +122,6 @@ export const projects = [
     imageUrl: "/projects/smk-coding.png",
     githubUrl: "https://github.com/PendaftaranSiswaBaru",
     demoUrl: "",
-  },
-  {
-    title: "Kampder",
-    description: {
-      id: "Aplikasi yang digunakan untuk Mencatat keuangan sehari-hari, Memantau target, dan Mengatur jadwal.",
-      en: "An application used for tracking daily finances, monitoring targets, and scheduling tasks.",
-    },
-    tags: ["Next.js 14", "TypeScript", "Tailwind", "shadcn/ui", "Framer Motion", "Prisma", "Neon PostgreSQL", "NextAuth", "PWA"],
-    category: ["Web Dev", "Android Dev"],
-    imageUrl: "/projects/kampder.png",
-    githubUrl: "",
-    demoUrl: "https://kampder.vercel.app/",
   },
   {
     title: "Game XOX",
